@@ -135,6 +135,11 @@
   <ItemGroup>
     <Library Include="..\SDL\VisualC\Win32\Debug\SDL3.lib" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Block.h" />
+    <ClInclude Include="Tetrimino.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
