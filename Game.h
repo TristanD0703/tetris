@@ -29,8 +29,10 @@ private:
 	SDL_Window* m_window = nullptr;
 	SDL_Surface* m_windowSurface = nullptr;
 	SDL_Renderer* m_renderer = nullptr;
-	const int WIDTH = 500;
-	const int HEIGHT = 500;
+	const int WIDTH = 400;
+	const int HEIGHT = 600;
 
 	void handleEvents();
+	void render();
+	void drawBoard();
 };

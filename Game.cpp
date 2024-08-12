@@ -23,8 +23,6 @@ Game::Game(int boardWidth, int boardHeight, int queueCount, int initialDropSpeed
     }
     //Grab the window's surface to render on
     m_windowSurface = SDL_GetWindowSurface(m_window);
-
-    std::cout << m_grid.size() << std::endl;
 }
 
 Game::~Game() {
@@ -38,8 +36,10 @@ Game::~Game() {
 
 void Game::start() {
     m_isRunning = true;
+    render();
     while (m_isRunning) {
         handleEvents();
+        //render();
     }
 }
 
@@ -51,4 +51,36 @@ void Game::handleEvents() {
             m_isRunning = false;
         }
     }
+}
+
+void Game::drawBoard() {
+    int padding = 50;
+    int width = WIDTH - padding;
+    int height = HEIGHT - padding;
+    int offset = (padding / 2);
+
+    int boxWidth = width / m_boardWidth;
+    int boxHeight = height / m_boardHeight;
+
+    SDL_FRect rect;
+    rect.w = boxWidth;
+    rect.h = boxHeight;
+
+    SDL_SetRenderDrawColor(m_renderer, 255, 255, 255, 255);
+    for (int i = 0; i < m_boardHeight; i++) {
+        for (int j = 0; j < m_boardWidth; j++) {
+            rect.x = j * boxWidth + offset;
+            rect.y = i * boxHeight + offset;
+            std::cout << "X: " << rect.x << " Y: " << rect.y << std::endl;
+            SDL_RenderRect(m_renderer, &rect);
+        }
+    }
+}
+
+void Game::render() {
+    SDL_RenderClear(m_renderer);
+
+    drawBoard();
+
+    SDL_RenderPresent(m_renderer);
 }
