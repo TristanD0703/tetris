@@ -13,6 +13,10 @@ public:
 
 	void start();
 
+	/*Stores a Block object into the current game state.
+	*/
+	void storeBlock(Block newBlock);
+
 private:
 	int m_boardWidth;
 	int m_boardHeight;
@@ -29,8 +33,8 @@ private:
 	SDL_Window* m_window = nullptr;
 	SDL_Surface* m_windowSurface = nullptr;
 	SDL_Renderer* m_renderer = nullptr;
-	const int WIDTH = 400;
-	const int HEIGHT = 600;
+	const int WIDTH = 800;
+	const int HEIGHT = 1200;
 
 	void handleEvents();
 	void render();

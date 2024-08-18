@@ -1,6 +1,3 @@
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h> // only include this one in the source file with main()!
-#include <iostream>
 #include "Game.h"
 
 int main(int argc, char* argv[])
